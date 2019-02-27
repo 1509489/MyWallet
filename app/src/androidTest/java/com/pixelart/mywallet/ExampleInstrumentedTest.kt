@@ -36,9 +36,4 @@ class ExampleInstrumentedTest {
         val appContext = InstrumentationRegistry.getInstrumentation().context
         assertEquals("com.pixelart.mywallet", appContext.packageName)
     }
-
-    @Test
-    fun inputData(){
-        onView(withId(R.id.editText)).perform(typeText("Sample Input"))
-    }
 }
