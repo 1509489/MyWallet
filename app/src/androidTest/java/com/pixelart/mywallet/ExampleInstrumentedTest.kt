@@ -5,12 +5,14 @@ import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.typeText
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.rule.ActivityTestRule
 
 
 import org.junit.Test
 import org.junit.runner.RunWith
 
+import org.junit.Assert.*
 import org.junit.Before
 
 /**
@@ -28,6 +30,12 @@ class ExampleInstrumentedTest {
         activityTestRule.launchActivity(Intent())
     }
 
+    @Test
+    fun useAppContext() {
+        // Context of the app under test.
+        val appContext = InstrumentationRegistry.getInstrumentation().context
+        assertEquals("com.pixelart.mywallet", appContext.packageName)
+    }
 
     @Test
     fun inputData(){
